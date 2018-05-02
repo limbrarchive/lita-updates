@@ -51,16 +51,16 @@ class Lita::Standup::Schedule
   end
 
   def user_for(username)
+    user = Lita::User.fuzzy_find(username)
+
     case Lita.config.robot.adapter
     when :slack
-      Lita::Adapters::Slack::SlackUser.from_data robot.chat_service.api.send(
-        :call_api, "users.info", :user => username
+      user = Lita::Adapters::Slack::SlackUser.from_data robot.chat_service.api.send(
+        :call_api, "users.info", :user => user.id
       )["user"]
-    else
-      Lita::User.fuzzy_find(username)
     end
   rescue => error
     puts "Error finding user #{username}"
-    nil
+    user
   end
 end
