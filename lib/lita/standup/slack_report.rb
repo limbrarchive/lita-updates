@@ -1,6 +1,7 @@
 class Lita::Standup::SlackReport < Lita::Standup::Report
   def call
-    robot.chat_service.api.call_api(
+    robot.chat_service.api.send(
+      :call_api,
       "chat.postMessage",
       as_user:     false,
       username:    user.mention_name,
