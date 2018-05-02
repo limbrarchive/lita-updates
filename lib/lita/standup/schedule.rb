@@ -53,7 +53,7 @@ class Lita::Standup::Schedule
   def user_for(username)
     case Lita.config.robot.adapter
     when :slack
-      SlackUser.from_data robot.chat_service.api.send(
+      Lita::Adapters::Slack::SlackUser.from_data robot.chat_service.api.send(
         :call_api, "users.info", :user => username
       )["user"]
     else
