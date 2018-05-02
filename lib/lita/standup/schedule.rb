@@ -12,7 +12,7 @@ class Lita::Standup::Schedule
 
   def call
     schedule.each do |username, hash|
-      user = Lita::User.fuzzy_find(username)
+      user = user_for username
       next unless user
 
       Lita::Timing::Scheduled.new(
@@ -48,5 +48,19 @@ class Lita::Standup::Schedule
 
     Time.new(now.year, now.month, now.day, hours, minutes).utc.
       strftime("%k:%M").strip
+  end
+
+  def user_for(username)
+    case Lita.config.robot.adapter
+    when :slack
+      SlackUser.from_data robot.chat_service.api.send(
+        :call_api, "users.info", :user => username
+      )["user"]
+    else
+      Lita::User.fuzzy_find(username)
+    end
+  rescue => error
+    puts "Error finding user #{username}"
+    nil
   end
 end

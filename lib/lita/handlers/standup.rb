@@ -43,9 +43,13 @@ module Lita
       end
 
       def standup_debug(response)
+        user = SlackUser.from_data robot.chat_service.api.send(
+          :call_api, "users.info", :user => response.user.mention_name
+        )["user"]
+
         robot.send_message(
           Lita::Source.new(user: response.user),
-          response.user.metadata.inspect
+          user.metadata.inspect
         )
       end
 
