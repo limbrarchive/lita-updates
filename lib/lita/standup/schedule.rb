@@ -12,7 +12,7 @@ class Lita::Standup::Schedule
 
   def call
     schedule.each do |username, hash|
-      user = user_for username
+      user = Lita::User.fuzzy_find username
       next unless user
 
       Lita::Timing::Scheduled.new(
@@ -42,6 +42,7 @@ class Lita::Standup::Schedule
   end
 
   def time_for(user, time)
+    user   = extended_user_for user
     now    = Time.now
     offset = user.metadata["tz_offset"] || now.utc_offset
     hours, minutes = time.split(":").collect(&:to_i)
@@ -50,14 +51,14 @@ class Lita::Standup::Schedule
       strftime("%k:%M").strip
   end
 
-  def user_for(username)
-    user = Lita::User.fuzzy_find(username)
-
+  def extended_user_for(user)
     case Lita.config.robot.adapter
     when :slack
-      user = Lita::Adapters::Slack::SlackUser.from_data robot.chat_service.api.send(
+      Lita::Adapters::Slack::SlackUser.from_data robot.chat_service.api.send(
         :call_api, "users.info", :user => user.id
       )["user"]
+    else
+      user
     end
   rescue => error
     puts "Error finding user #{username}"
