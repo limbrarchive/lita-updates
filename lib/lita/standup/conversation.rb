@@ -45,6 +45,8 @@ class Lita::Standup::Conversation
   end
 
   def say(text)
+    return if text.empty?
+
     robot.send_message(Lita::Source.new(user: @user), text)
   end
 
