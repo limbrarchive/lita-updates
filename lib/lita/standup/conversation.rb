@@ -18,6 +18,11 @@ class Lita::Standup::Conversation
 
   def call
     return if message && state == "idle"
+    if message && message.body.downcase == "cancel"
+      say "This standup has been cancelled. To start again, just say `standup`."
+      self.state = "idle"
+      return
+    end
 
     data.write state, message.body unless state == "idle" || message.nil?
 
