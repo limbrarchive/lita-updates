@@ -46,7 +46,7 @@ class Lita::Standup::Schedule
     offset = user.metadata["tz_offset"] || now.utc_offset
     hours, minutes = time.split(":").collect(&:to_i)
 
-    Time.new(now.year, now.month, now.day, hours, minutes).utc.
+    Time.new(now.year, now.month, now.day, hours, minutes, 0, offset).utc.
       strftime("%k:%M").strip
   end
 
