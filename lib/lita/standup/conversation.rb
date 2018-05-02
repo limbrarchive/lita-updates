@@ -17,6 +17,8 @@ class Lita::Standup::Conversation
   end
 
   def call
+    return if message && state == "idle"
+
     data.write state, message.body unless state == "idle" || message.nil?
 
     self.state = next_state
