@@ -1,7 +1,11 @@
 class Lita::Standup::Conversation
+  INTRODUCTION = <<-TXT
+Hi there, it’s time for our standup meeting :smile:
+There are just three questions (to skip a question, just reply with "None". To skip the standup, reply with "Cancel").
+  TXT
   STATES = %w[ idle yesterday today blockers done ]
   PROMPTS = {
-    "yesterday" => "Hi there, it’s time for our standup meeting :smile:\nWhat have you been working on?",
+    "yesterday" => "#{INTRODUCTION}\nWhat have you been working on?",
     "today"     => "What are you working on next?",
     "blockers"  => "What blockers are impeding your progress?",
     "done"      => "Thanks! I’ll let everyone know what you’ve been up to."
