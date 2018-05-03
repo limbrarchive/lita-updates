@@ -1,4 +1,4 @@
-class Lita::Standup::SetSchedule
+class Lita::Standup::Commands::Schedule
   def self.call(robot, redis, user, message)
     new(robot, redis, user, message).call
   end
