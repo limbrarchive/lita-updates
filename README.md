@@ -1,5 +1,7 @@
 # lita-updates
 
+[![Build Status](https://travis-ci.com/limbrapp/lita-updates.svg?branch=master)](https://travis-ci.com/limbrapp/lita-updates)
+
 Provides a structured standup discussion to share amongst team members, along with scheduling at specific times/days for each user.
 
 The original code for this library was constructed by [Josh Bassett](https://twitter.com/nullobject) and others at [The Conversation](https://theconversation.com/au), and then generously shared with myself to extend and open source.
