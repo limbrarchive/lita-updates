@@ -13,6 +13,7 @@ This handler adds the following public commands via direct messages to your Lita
 * `standup` – begins a standup conversation with three questions (what have you been working on, what's next, what's getting in the way). Once these questions are answered, the result is shared in the target channel.
 * `standup schedule` – see your personal schedule for standup conversations.
 * `standup schedule TIME DAY DAY DAY` – set your personal schedule for standup conversations. e.g. `standup schedule 10:00 monday tuesday friday`. All days are accepted, and the time is 24 hours, and respects the user's time zone if set (otherwise, defaults to UTC).
+* `standup schedule clear` – clear out your personal schedule (useful for when you're on holiday).
 
 If you want to get stuck into the internals of this handler, there are two hidden commands that may be useful:
 

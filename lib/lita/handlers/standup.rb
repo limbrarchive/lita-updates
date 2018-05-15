@@ -19,6 +19,11 @@ module Lita
         Lita::Standup::Commands::GetSchedule.call robot, redis, response.user
       end
 
+      route /^standup schedule clear$/, :command => true,
+        :help => {"standup schedule clear" => "Clear your scheduled standup"} do |response|
+        Lita::Standup::Commands::ClearSchedule.call robot, redis, response.user
+      end
+
       route /^standup schedule \d/i, :command => true,
         :help => {"standup schedule" => "Specify hour and days. e.g. `standup schedule 16:00 monday tuesday friday`"} do |response|
         Lita::Standup::Commands::SetSchedule.call robot, redis, response.user,
