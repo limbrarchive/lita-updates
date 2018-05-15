@@ -26,7 +26,7 @@ This handler adds the following public commands via direct messages to your Lita
 If you want to get stuck into the internals of this handler, there are two hidden commands that may be useful:
 
 * `standup export` – returns the JSON of each person's schedules.
-* `standup import JSON` – sets up everyone's schedules. Don't use this command unless you're absolutely sure of what you're doing.
+* `standup import JSON` – sets up everyone's schedules. Don't use this command unless you're absolutely sure of what you're doing (and [make sure smart quotes aren't enabled by your operating system](https://twitter.com/SlackHQ/status/898272637020852224)).
 
 ## Installation
 
