@@ -33,10 +33,6 @@ class Lita::Standup::Commands::SetSchedule
     raw
   end
 
-  def say(message)
-    robot.send_message Lita::Source.new(:user => user), message
-  end
-
   def write(time, days)
     schedule[user.mention_name] = {"time" => time, "days" => days}
 
