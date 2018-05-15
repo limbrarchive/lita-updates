@@ -4,7 +4,8 @@ module Lita::Standup
 end
 
 require "lita/standup/commands/data"
-require "lita/standup/commands/schedule"
+require "lita/standup/commands/get_schedule"
+require "lita/standup/commands/set_schedule"
 require "lita/standup/commands/standup"
 require "lita/standup/conversation"
 require "lita/standup/data"

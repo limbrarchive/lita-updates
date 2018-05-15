@@ -14,9 +14,14 @@ module Lita
         Lita::Standup::Commands::Standup.call robot, redis, response.user
       end
 
-      route /^standup schedule/i, :command => true,
+      route /^standup schedule$/i, :command => true,
+        :help => {"standup schedule" => "Display your current schedule"} do |response|
+        Lita::Standup::Commands::GetSchedule.call robot, redis, response.user
+      end
+
+      route /^standup schedule \d/i, :command => true,
         :help => {"standup schedule" => "Specify hour and days. e.g. `standup schedule 16:00 monday tuesday friday`"} do |response|
-        Lita::Standup::Commands::Schedule.call robot, redis, response.user,
+        Lita::Standup::Commands::SetSchedule.call robot, redis, response.user,
           response.message.body.gsub('standup schedule', '').strip
       end
 

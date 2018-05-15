@@ -1,4 +1,4 @@
-class Lita::Standup::Commands::Schedule
+class Lita::Standup::Commands::SetSchedule
   def self.call(robot, redis, user, message)
     new(robot, redis, user, message).call
   end
@@ -13,26 +13,14 @@ class Lita::Standup::Commands::Schedule
   def call
     data = message.split(/,?\s+/)
 
-    if data.length.zero?
-      report
-    else
-      write data[0], data[1..-1].collect(&:downcase)
-      report
-    end
+    write data[0], data[1..-1].collect(&:downcase)
+
+    Lita::Standup::Commands::GetSchedule.call robot, redis, user
   end
 
   private
 
   attr_reader :robot, :redis, :user, :message
-
-  def report
-    hash = schedule[user.mention_name]
-    if hash.nil?
-      say "No standup scheduled"
-    else
-      say "Standup scheduled for #{hash["time"]} on #{hash["days"].join(", ")}"
-    end
-  end
 
   def schedule
     @schedule ||= JSON.load schedule_raw
