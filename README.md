@@ -6,6 +6,14 @@ The original code for this library was constructed by [Josh Bassett](https://twi
 
 It has been written with Slack in mind as the adapter, but extensions to make it more friendly with other platforms are very welcome.
 
+The converation prompts:
+
+![the conversation prompts](https://pat-public.s3.amazonaws.com/lita-standup-conversation.png)
+
+And the shared results:
+
+![the shared results](https://pat-public.s3.amazonaws.com/lita-standup-results.png)
+
 ## Usage
 
 This handler adds the following public commands via direct messages to your Lita bot:
