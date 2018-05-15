@@ -1,4 +1,4 @@
-class Lita::Standup::Commands::ClearSchedule
+class Lita::Updates::Commands::ClearSchedule
   def self.call(robot, redis, user)
     new(robot, redis, user).call
   end
@@ -12,9 +12,9 @@ class Lita::Standup::Commands::ClearSchedule
   def call
     schedule.delete user.mention_name
 
-    redis.set "lita-standup:schedule", JSON.dump(schedule)
+    redis.set "lita-updates:schedule", JSON.dump(schedule)
 
-    Lita::Standup::Commands::GetSchedule.call robot, redis, user
+    Lita::Updates::Commands::GetSchedule.call robot, redis, user
   end
 
   private
@@ -26,7 +26,7 @@ class Lita::Standup::Commands::ClearSchedule
   end
 
   def schedule_raw
-    raw = redis.get("lita-standup:schedule")
+    raw = redis.get("lita-updates:schedule")
     return "{}" if raw.nil? || raw.empty?
 
     raw

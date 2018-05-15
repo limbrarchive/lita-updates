@@ -1,4 +1,4 @@
-class Lita::Standup::Commands::GetSchedule
+class Lita::Updates::Commands::GetSchedule
   def self.call(robot, redis, user)
     new(robot, redis, user).call
   end
@@ -28,7 +28,7 @@ class Lita::Standup::Commands::GetSchedule
   end
 
   def schedule_raw
-    raw = redis.get("lita-standup:schedule")
+    raw = redis.get("lita-updates:schedule")
     return "{}" if raw.nil? || raw.empty?
 
     raw

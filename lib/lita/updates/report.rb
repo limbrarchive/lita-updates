@@ -1,4 +1,4 @@
-class Lita::Standup::Report
+class Lita::Updates::Report
   NOTHING = /^(none|nothing|nada)$/i
 
   def initialize(robot, data, user)
@@ -34,7 +34,7 @@ class Lita::Standup::Report
   end
 
   def target
-    Lita::Room.find_by_name Lita.config.handlers.standup.target
+    Lita::Room.find_by_name Lita.config.handlers.updates.target
   end
 
   def text

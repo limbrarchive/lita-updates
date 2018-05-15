@@ -1,4 +1,4 @@
-# lita-standup
+# lita-updates
 
 Provides a structured standup discussion to share amongst team members, along with scheduling at specific times/days for each user.
 
@@ -8,11 +8,11 @@ It has been written with Slack in mind as the adapter, but extensions to make it
 
 The converation prompts:
 
-![the conversation prompts](https://pat-public.s3.amazonaws.com/lita-standup-conversation.png)
+![the conversation prompts](https://pat-public.s3.amazonaws.com/lita-updates-conversation.png)
 
 And the shared results:
 
-![the shared results](https://pat-public.s3.amazonaws.com/lita-standup-results.png)
+![the shared results](https://pat-public.s3.amazonaws.com/lita-updates-results.png)
 
 ## Usage
 
@@ -30,22 +30,22 @@ If you want to get stuck into the internals of this handler, there are two hidde
 
 ## Installation
 
-Add lita-standup to your Lita instance's Gemfile:
+Add lita-updates to your Lita instance's Gemfile:
 
 ```ruby
-gem "lita-standup"
+gem "lita-updates"
 ```
 
 Then, in your Lita configuration, you'll want to set the channel where standup messages are shared:
 
 ```ruby
-config.handlers.standup.target = "standup"
+config.handlers.updates.target = "standup"
 ```
 
 ## Contributing
 
-Bug reports and pull requests are welcome [on GitHub](https://github.com/limbr/lita-standup). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome [on GitHub](https://github.com/limbr/lita-updates). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
-lita-standup is developed and maintained by [Pat Allan](https://freelancing-gods.com) for [Limbr](https://limbr.org), based on code by the team at [The Conversation](https://theconversation.com/au), and is released under the open [MIT Licence](https://opensource.org/licenses/MIT).
+lita-updates is developed and maintained by [Pat Allan](https://freelancing-gods.com) for [Limbr](https://limbr.org), based on code by the team at [The Conversation](https://theconversation.com/au), and is released under the open [MIT Licence](https://opensource.org/licenses/MIT).

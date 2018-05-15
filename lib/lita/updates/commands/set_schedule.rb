@@ -1,4 +1,4 @@
-class Lita::Standup::Commands::SetSchedule
+class Lita::Updates::Commands::SetSchedule
   def self.call(robot, redis, user, message)
     new(robot, redis, user, message).call
   end
@@ -15,7 +15,7 @@ class Lita::Standup::Commands::SetSchedule
 
     write data[0], data[1..-1].collect(&:downcase)
 
-    Lita::Standup::Commands::GetSchedule.call robot, redis, user
+    Lita::Updates::Commands::GetSchedule.call robot, redis, user
   end
 
   private
@@ -27,7 +27,7 @@ class Lita::Standup::Commands::SetSchedule
   end
 
   def schedule_raw
-    raw = redis.get("lita-standup:schedule")
+    raw = redis.get("lita-updates:schedule")
     return "{}" if raw.nil? || raw.empty?
 
     raw
@@ -36,6 +36,6 @@ class Lita::Standup::Commands::SetSchedule
   def write(time, days)
     schedule[user.mention_name] = {"time" => time, "days" => days}
 
-    redis.set "lita-standup:schedule", JSON.dump(schedule)
+    redis.set "lita-updates:schedule", JSON.dump(schedule)
   end
 end

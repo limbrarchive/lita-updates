@@ -1,10 +1,10 @@
 Gem::Specification.new do |spec|
-  spec.name          = "lita-standup"
+  spec.name          = "lita-updates"
   spec.version       = "0.1.0"
   spec.authors       = ["Pat Allan"]
   spec.email         = ["pat@freelancing-gods.com"]
   spec.summary       = "Standup Prompter for Slack"
-  spec.homepage      = "https://github.com/limbrapp/lita-standup"
+  spec.homepage      = "https://github.com/limbrapp/lita-updates"
   spec.license       = "MIT"
   spec.metadata      = {"lita_plugin_type" => "handler"}
 

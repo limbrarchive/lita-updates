@@ -1,6 +1,6 @@
 require "json"
 
-class Lita::Standup::Schedule
+class Lita::Updates::Schedule
   def self.call(robot, redis)
     new(robot, redis).call
   end
@@ -21,7 +21,7 @@ class Lita::Standup::Schedule
         time_for(user, hash["time"]), hash["days"].collect(&:to_sym)
       ) do
         puts "Starting standup with #{user.mention_name}"
-        Lita::Standup::Conversation.new(robot, redis, user).call
+        Lita::Updates::Conversation.new(robot, redis, user).call
       end
     end
   end
@@ -35,7 +35,7 @@ class Lita::Standup::Schedule
   end
 
   def schedule_raw
-    raw = redis.get("lita-standup:schedule")
+    raw = redis.get("lita-updates:schedule")
     return "{}" if raw.nil? || raw.empty?
 
     raw

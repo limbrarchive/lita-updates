@@ -1,4 +1,4 @@
-class Lita::Standup::Conversation
+class Lita::Updates::Conversation
   INTRODUCTION = <<-TXT
 Hi there, it’s time for our standup meeting :smile:
 There are just three questions (to skip a question, just reply with "None". To skip the standup, reply with "Cancel").
@@ -13,7 +13,7 @@ There are just three questions (to skip a question, just reply with "None". To s
 
   def initialize(robot, redis, user, message = nil)
     @robot   = robot
-    @data    = Lita::Standup::Data.new redis, user
+    @data    = Lita::Updates::Data.new redis, user
     @user    = user
     @message = message
 
@@ -69,9 +69,9 @@ There are just three questions (to skip a question, just reply with "None". To s
   def reporter
     case Lita.config.robot.adapter
     when :slack
-      Lita::Standup::SlackReport
+      Lita::Updates::SlackReport
     else
-      Lita::Standup::Report
+      Lita::Updates::Report
     end
   end
 end

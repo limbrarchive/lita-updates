@@ -1,4 +1,4 @@
-class Lita::Standup::Data
+class Lita::Updates::Data
   def initialize(redis, user)
     @redis = redis
     @user  = user

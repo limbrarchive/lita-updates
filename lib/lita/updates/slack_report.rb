@@ -1,4 +1,4 @@
-class Lita::Standup::SlackReport < Lita::Standup::Report
+class Lita::Updates::SlackReport < Lita::Updates::Report
   def call
     robot.chat_service.api.send(
       :call_api,

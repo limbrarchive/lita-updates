@@ -1,4 +1,4 @@
-class Lita::Standup::Commands::Standup
+class Lita::Updates::Commands::Standup
   def self.call(robot, redis, user, message = nil)
     new(robot, redis, user, message).call
   end
@@ -12,7 +12,7 @@ class Lita::Standup::Commands::Standup
 
   def call
     puts "Starting standup with #{user.mention_name}" if message.nil?
-    Lita::Standup::Conversation.new(robot, redis, user, message).call
+    Lita::Updates::Conversation.new(robot, redis, user, message).call
   end
 
   private
