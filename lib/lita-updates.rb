@@ -7,7 +7,7 @@ Lita.load_locales Dir[File.expand_path(
 
 require "lita/handlers/updates"
 
-Lita::Handlers::Standup.template_root File.expand_path(
+Lita::Handlers::Updates.template_root File.expand_path(
   File.join("..", "..", "templates"),
  __FILE__
 )

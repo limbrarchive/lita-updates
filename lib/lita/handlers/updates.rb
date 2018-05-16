@@ -1,6 +1,6 @@
 module Lita
   module Handlers
-    class Standup < Handler
+    class Updates < Handler
       MINUTE = 60 # seconds
 
       config :target
@@ -59,4 +59,4 @@ module Lita
   end
 end
 
-Lita.register_handler(Lita::Handlers::Standup)
+Lita.register_handler(Lita::Handlers::Updates)

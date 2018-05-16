@@ -1,6 +1,6 @@
 require "spec_helper"
 
-RSpec.describe Lita::Handlers::Standup, :lita_handler => true do
+RSpec.describe Lita::Handlers::Updates, :lita_handler => true do
   it "runs through the standup flow" do
     send_command "standup", :privately => true
 
