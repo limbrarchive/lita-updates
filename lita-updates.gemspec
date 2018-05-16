@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "lita-updates"
-  spec.version       = "0.1.0"
+  spec.version       = "0.1.1"
   spec.authors       = ["Pat Allan"]
   spec.email         = ["pat@freelancing-gods.com"]
   spec.summary       = "Standup Prompter for Slack"
