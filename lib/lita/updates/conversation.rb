@@ -17,7 +17,7 @@ There are just three questions (to skip a question, just reply with "None". To s
     @user    = user
     @message = message
 
-    self.state = "idle" if state.nil? || state.empty?
+    self.state = "idle" if state.nil? || state.empty? || message.nil?
   end
 
   def call
