@@ -14,7 +14,7 @@ class Lita::Updates::SlackReport < Lita::Updates::Report
   private
 
   def answer(prompt, value, colour)
-    return nil if value.strip.empty? || value[NOTHING]
+    return nil if value.nil? || value.strip.empty? || value[NOTHING]
 
     Lita::Adapters::Slack::Attachment.new value,
       :title => prompt, :color => colour
